@@ -20,21 +20,21 @@ export class NewsComponent implements OnInit {
   @BlockUI() blockUI: NgBlockUI;
 
   private errorMap = new Map();
-  private categories: Category[] = [
+  private categories: Category[] = [ // is used!
     {value: 'business', viewValue: 'Biznes'},
-    {value: 'entertainment', viewValue: 'Rozrywka'},
-    {value: 'general', viewValue: 'Ogólne'},
-    {value: 'health', viewValue: 'Zdrowie'},
     {value: 'science', viewValue: 'Nauka'},
+    {value: 'general', viewValue: 'Ogólne'},
+    {value: 'entertainment', viewValue: 'Rozrywka'},
     {value: 'sports', viewValue: 'Sport'},
     {value: 'technology', viewValue: 'Technologia'},
+    {value: 'health', viewValue: 'Zdrowie'}
   ];
 
   private countryCode: string = 'pl';
   private news: News = new News();
   private pageSizeOptions: number[] = [3, 5, 10, 20]; // is used!
   private pageEvent: PageEvent = new PageEvent();
-  private selected: Category = this.categories[6];
+  private selected: Category = {value: 'technology', viewValue: 'Technologia'};
 
   ngOnInit() {
     this.setDefaultValues();
@@ -55,7 +55,6 @@ export class NewsComponent implements OnInit {
         this.blockUI.stop();
       });
   }
-
 
   compareObjects(o1: string, o2: string): boolean {
     return o1 === o2;
