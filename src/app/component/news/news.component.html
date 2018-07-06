@@ -1,38 +1,30 @@
-<div class="basic-container" style="max-width: 800px">
+<div>
+  <app-alerts></app-alerts>
   <block-ui message="Pobieram najświeższe wiadomości">
   </block-ui>
-
-  <div>
-    <mat-form-field>
-      <mat-select [compareWith]="compareObjects" (selectionChange)="getNews()" [(ngModel)]="selected.value"
-                  placeholder="Wybierz kategorię">
-        <mat-option *ngFor="let category of categories" [value]="category.value">{{category.viewValue}}</mat-option>
-      </mat-select>
-    </mat-form-field>
-  </div>
-
-  <button mat-stroked-button="green" (click)="getNews(this.selected)">Pobierz wiadomości</button>
-
-  <mat-paginator [length]="pageEvent.length"
-                 [pageSize]="pageEvent.pageSize"
-                 [pageSizeOptions]="pageSizeOptions"
-                 (page)="paginationEvent($event)">
-  </mat-paginator>
-
-  <div class="main-title">{{news.category}} {{news.country}}</div>
-  <div style="display: flex; flex-flow: column wrap;">
-    <div *ngFor="let article of news.articles" style="max-width:800px; border: 2px solid black; margin-bottom:10px;">
-      <div class="news-info">
-        <div class="author">{{article.author}}</div>
-        <div class="date">{{article.date}}</div>
-        <div class="title">{{article.title}}</div>
-        <div class="source">{{article.sourceName}}</div>
-        <div class="url">{{article.articleUrl}}</div>
-      </div>
-      <div class="news-body">
-        <div class="description">{{article.description}}</div>
-        <div class="picture">{{article.imageUrl}}</div>
-      </div>
+  <div class="news-container">
+    <div>
+      <mat-form-field>
+        <mat-select [compareWith]="compareObjects" (selectionChange)="getNewsOnCategoryChange()"
+                    [(ngModel)]="selected.value"
+                    placeholder="Wybierz kategorię">
+          <mat-option *ngFor="let category of categories" [value]="category.value">{{category.viewValue}}</mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
+
+
+    <div class="pagination">
+      <button mat-stroked-button (click)="getNews()">Pobierz wiadomości</button>
+      <mat-paginator [length]="pageEvent.length"
+                     [pageIndex]="pageEvent.pageIndex"
+                     [pageSize]="pageEvent.pageSize"
+                     [pageSizeOptions]="pageSizeOptions"
+                     (page)="paginationEvent($event)">
+      </mat-paginator>
+    </div>
+    <app-article-list
+      [articles]="news.articles">
+    </app-article-list>
   </div>
 </div>

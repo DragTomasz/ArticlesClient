@@ -1,3 +1,7 @@
-<p>
-  article-list works!
-</p>
+<div class="articles-list">
+  <div *ngFor="let art of articles">
+    <app-article
+      [article]="art">
+    </app-article>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+.news-container {
+  margin: 50px;
+  position: absolute;
+  top: 0;
+  left: 45%;
+  transform: translate(-50%, 0%);
+  max-width: 1000px;
+  min-width: 600px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.pagination button {
+  max-height: 50px;
+}
+
+

@@ -1,0 +1,4 @@
+.articles-list {
+  display: flex;
+  flex-flow: column wrap;
+}
