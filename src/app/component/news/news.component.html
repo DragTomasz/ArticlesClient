@@ -26,5 +26,6 @@
     <app-article-list
       [articles]="news.articles">
     </app-article-list>
+    <button *ngIf="news?.articles && news.articles?.length > 0" mat-stroked-button (click)="scrollToTop()">Wróć na górę</button>
   </div>
 </div>

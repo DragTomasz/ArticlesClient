@@ -85,4 +85,8 @@ export class NewsComponent implements OnInit {
     this.pageEvent.pageSize = 5;
     this.pageEvent.length = 0;
   }
+
+  scrollToTop() {
+    document.body.scrollTop = document.documentElement.scrollTop = 0;
+  }
 }
