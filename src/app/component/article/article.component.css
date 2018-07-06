@@ -5,7 +5,8 @@
 
 .picture img {
   height: 400px;
-  width: 100%;
+  width: 98%;
+  padding-left: 10px;
 }
 
 .url button {
