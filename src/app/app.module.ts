@@ -16,6 +16,7 @@ import {FooterComponent} from './component/footer/footer.component';
 import {registerLocaleData} from '@angular/common';
 import localePl from '@angular/common/locales/pl';
 import {NotifierModule} from 'angular-notifier';
+import {LazyLoadImageModule} from 'ng-lazyload-image';
 
 registerLocaleData(localePl, 'pl');
 
@@ -50,6 +51,7 @@ registerLocaleData(localePl, 'pl');
         },
       }
     }),
+    LazyLoadImageModule,
     FormsModule,
     MatInputModule,
     MatButtonModule,

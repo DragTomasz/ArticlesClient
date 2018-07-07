@@ -12,6 +12,8 @@ export class ArticleComponent implements OnInit {
   @Input()
   article: Article;
 
+  offset = 100;
+
   constructor() {
   }
 

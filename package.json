@@ -25,6 +25,7 @@
     "angular-notifier": "^4.0.0",
     "core-js": "^2.5.4",
     "ng-block-ui": "^1.0.4",
+    "ng-lazyload-image": "^4.0.0",
     "rxjs": "^6.0.0",
     "rxjs-compat": "^6.2.1",
     "zone.js": "^0.8.26"

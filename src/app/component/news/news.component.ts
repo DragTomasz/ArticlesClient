@@ -52,7 +52,6 @@ export class NewsComponent implements OnInit {
         this.pageEvent.length = result.headers.get('X-Total-Count');
       },
       response => {
-        console.log('jestem');
         this.blockUI.stop();
         this.notifier.notify('error', this.getErrorMessage(response.error));
       },

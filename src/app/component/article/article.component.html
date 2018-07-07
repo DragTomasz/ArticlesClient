@@ -1,5 +1,4 @@
 <mat-card class="article">
-
   <mat-card-header class="article-info">
     <mat-card-title class="article-title">{{article.title}}</mat-card-title>
     <mat-card-subtitle>
@@ -11,14 +10,10 @@
       </button>
     </div>
   </mat-card-header>
-
   <mat-card-content class="article-body">
     <div *ngIf="article.imageUrl?.length > 0" class="article-picture">
-      <img (click)="onNavigate(article.articleUrl)" src={{article.imageUrl}}>
+      <img (click)="onNavigate(article.articleUrl)" [lazyLoad]="article.imageUrl" [offset]="offset">
     </div>
   </mat-card-content>
-
   <div class="description">{{article.description}}</div>
 </mat-card>
-
-
