@@ -1,0 +1,15 @@
+.footer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 250px;
+  margin-top: 100px;
+  background-color: #2d2d2d;
+}
+
+.app-author {
+  font-weight: 100;
+  font-size: 1.5em;
+  padding: 10px;
+  color: white;
+}

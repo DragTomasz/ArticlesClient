@@ -1,7 +1,5 @@
 <div class="articles-list">
-  <div *ngFor="let art of articles">
-    <app-article
+    <app-article *ngFor="let art of articles"
       [article]="art">
     </app-article>
-  </div>
 </div>

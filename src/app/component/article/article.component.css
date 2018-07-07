@@ -1,30 +1,37 @@
 .article {
-  border: 2px solid black;
-  margin-bottom: 10px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  position: relative;
+  transition: background-color 1s;
 }
 
-.picture img {
-  height: 400px;
-  width: 98%;
-  padding-left: 10px;
+.article:hover {
+  background-color: rgba(75, 0, 136, 0.05);
 }
 
-.url button {
+.article-picture img {
+  width: 100%;
+  max-height: 400px;
+}
+
+.article-picture img:hover {
+  cursor: pointer;
+}
+
+.article-url button {
   margin-top: 10px;
+  min-width: 130px;
   width: auto;
-  min-width: 120px;
-}
-
-.article-body {
- margin: 10px;
-}
-
-.description {
-  margin: 10px;
 }
 
 .article-info {
   display: flex;
   justify-content: space-between;
-  margin: 10px;
+  font-weight: 500;
 }
+
+.article-title {
+  font-weight: 700;
+  font-size: 1.2em;
+}
+

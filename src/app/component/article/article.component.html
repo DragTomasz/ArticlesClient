@@ -1,22 +1,24 @@
-<div class="article">
+<mat-card class="article">
 
-  <div class="article-info">
-    <div class="author">{{setAuthorName(article.author)}}</div>
-    <div class="date">{{article.date}}</div>
-  </div>
-
-  <div class="article-body">
-    <div class="title">{{article.title}}</div>
-    <div *ngIf="article.articleUrl?.length > 0" class="url">
-      <button mat-stroked-button (click)="onNavigate(article.articleUrl)">{{article.sourceName}}</button>
+  <mat-card-header class="article-info">
+    <mat-card-title class="article-title">{{article.title}}</mat-card-title>
+    <mat-card-subtitle>
+      <div class="author">{{setAuthorName(article.author)}}</div>
+      <div class="date">{{article.date | date}}</div>
+    </mat-card-subtitle>
+    <div *ngIf="article.articleUrl?.length > 0" class="article-url">
+      <button mat-raised-button color="primary" (click)="onNavigate(article.articleUrl)">{{article.sourceName}}
+      </button>
     </div>
-  </div>
+  </mat-card-header>
+
+  <mat-card-content class="article-body">
+    <div *ngIf="article.imageUrl?.length > 0" class="article-picture">
+      <img (click)="onNavigate(article.articleUrl)" src={{article.imageUrl}}>
+    </div>
+  </mat-card-content>
 
   <div class="description">{{article.description}}</div>
-  <div *ngIf="article.imageUrl?.length > 0" class="picture">
-    <img (click)="onNavigate(article.articleUrl)" src={{article.imageUrl}}>
-  </div>
-</div>
-
+</mat-card>
 
 

@@ -23,7 +23,7 @@ export class ArticleComponent implements OnInit {
   }
 
   setAuthorName(name: string): string {
-    if (isNull(name) || (name.length == 0)) {
+    if (isNull(name) || (name.length === 0)) {
       return 'Autor nieznany';
     } else {
       return name;

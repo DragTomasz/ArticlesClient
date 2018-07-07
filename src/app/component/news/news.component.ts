@@ -3,9 +3,10 @@ import {NewsService} from '../../service/news/news.service';
 import {News} from '../../model/News';
 import {Category} from '../../model/Category';
 import {PageEvent} from '@angular/material';
-import {AlertsService} from 'angular-alert-module';
 import {BlockUI, NgBlockUI} from 'ng-block-ui';
 import {Error} from '../../model/Error';
+import {NotifierService} from 'angular-notifier';
+import {isUndefined} from 'util';
 
 @Component({
   selector: 'app-news',
@@ -14,13 +15,16 @@ import {Error} from '../../model/Error';
 })
 export class NewsComponent implements OnInit {
 
-  constructor(private service: NewsService, private alerts: AlertsService) {
+  private readonly notifier: NotifierService;
+
+  constructor(private service: NewsService, notifierService: NotifierService) {
+    this.notifier = notifierService;
   }
 
   @BlockUI() blockUI: NgBlockUI;
 
-  private errorMap = new Map();
-  private categories: Category[] = [ // is used!
+  errorMap = new Map();
+  categories: Category[] = [
     {value: 'business', viewValue: 'Biznes'},
     {value: 'science', viewValue: 'Nauka'},
     {value: 'general', viewValue: 'Ogólne'},
@@ -30,11 +34,11 @@ export class NewsComponent implements OnInit {
     {value: 'health', viewValue: 'Zdrowie'}
   ];
 
-  private countryCode: string = 'pl';
-  private news: News = new News();
-  private pageSizeOptions: number[] = [3, 5, 10, 20]; // is used!
-  private pageEvent: PageEvent = new PageEvent();
-  private selected: Category = {value: 'technology', viewValue: 'Technologia'};
+  countryCode = 'pl';
+  news: News = new News();
+  pageSizeOptions: number[] = [3, 5, 10, 20];
+  pageEvent: PageEvent = new PageEvent();
+  selected: Category = {value: 'technology', viewValue: 'Technologia'};
 
   ngOnInit() {
     this.setDefaultValues();
@@ -48,8 +52,9 @@ export class NewsComponent implements OnInit {
         this.pageEvent.length = result.headers.get('X-Total-Count');
       },
       response => {
+        console.log('jestem');
         this.blockUI.stop();
-        this.alerts.setMessage(this.getErrorMessage(response.error), 'error');
+        this.notifier.notify('error', this.getErrorMessage(response.error));
       },
       () => {
         this.blockUI.stop();
@@ -73,13 +78,12 @@ export class NewsComponent implements OnInit {
   }
 
   getErrorMessage(error: Error): string {
-    return this.errorMap.get(error.status.toString());
+    return isUndefined(error.status) ? this.errorMap.get('0') : this.errorMap.get(error.status.toString());
   }
 
   private setDefaultValues() {
     this.errorMap.set('424', 'Niestety nie udało się pobrać wiadomości');
-    this.alerts.setDefaults('timeout', 4);
-    this.alerts.setConfig('warn', 'icon', 'warning');
+    this.errorMap.set('0', 'Niestety nie udało się pobrać wiadomości');
     this.pageEvent.pageIndex = 0;
     this.pageEvent.pageSize = 5;
     this.pageEvent.length = 0;

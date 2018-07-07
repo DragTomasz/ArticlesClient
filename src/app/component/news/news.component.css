@@ -1,11 +1,13 @@
 .news-container {
-  margin: 50px;
-  position: absolute;
-  top: 0;
-  left: 45%;
-  transform: translate(-50%, 0%);
+  position: relative;
   max-width: 1000px;
   min-width: 600px;
+  background-color: rgba(255, 255, 255, 1);
+
+  min-height: 99px;
+  margin: 0 auto;
+  padding: 40px;
+  box-shadow: 0 7px 10px 4px rgba(0, 0, 0, .2);
 }
 
 .pagination {
@@ -14,8 +16,18 @@
   margin-bottom: 15px;
 }
 
+.article-error {
+  z-index: 2;
+}
+
 .pagination button {
   max-height: 50px;
 }
 
+.back-top-button {
+  margin-top: 100px
+}
 
+.paginator {
+  background-color: rgba(255, 255, 255, 0);
+}
