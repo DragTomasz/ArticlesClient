@@ -10,7 +10,8 @@
 }
 
 .article-picture img {
-  width: 100%;
+  width: auto;
+  max-width: 952px;
   max-height: 400px;
 }
 

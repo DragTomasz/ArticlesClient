@@ -3,16 +3,15 @@
   <block-ui message="Pobieram najświeższe wiadomości">
   </block-ui>
   <div class="news-container">
-    <div class="pagination">
-      <mat-form-field>
+    <div class="main-options">
+      <mat-form-field class="select-category">
         <mat-select [compareWith]="compareObjects" (selectionChange)="getNewsOnCategoryChange()"
                     [(ngModel)]="selected.value"
                     placeholder="Wybierz kategorię">
           <mat-option *ngFor="let category of categories" [value]="category.value">{{category.viewValue}}</mat-option>
         </mat-select>
       </mat-form-field>
-
-      <button mat-raised-button color="primary" (click)="getNews()">Pobierz wiadomości</button>
+      <button mat-raised-button color="primary" class="get-news-button" (click)="getNews()">Pobierz wiadomości</button>
       <mat-paginator class="paginator" [length]="pageEvent.length"
                      [pageIndex]="pageEvent.pageIndex"
                      [pageSize]="pageEvent.pageSize"

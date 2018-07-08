@@ -12,7 +12,7 @@
   </mat-card-header>
   <mat-card-content class="article-body">
     <div *ngIf="article.imageUrl?.length > 0" class="article-picture">
-      <img (click)="onNavigate(article.articleUrl)" [lazyLoad]="article.imageUrl" [offset]="offset">
+      <img (click)="onNavigate(article.articleUrl)" [defaultImage]="defaultImage" [lazyLoad]="article.imageUrl" [offset]="offset">
     </div>
   </mat-card-content>
   <div class="description">{{article.description}}</div>

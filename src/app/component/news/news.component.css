@@ -1,16 +1,15 @@
 .news-container {
   position: relative;
+  min-height: 700px;
   max-width: 1000px;
-  min-width: 600px;
+  min-width: 1000px;
   background-color: rgba(255, 255, 255, 1);
-
-  min-height: 99px;
   margin: 0 auto;
   padding: 40px;
   box-shadow: 0 7px 10px 4px rgba(0, 0, 0, .2);
 }
 
-.pagination {
+.main-options {
   display: flex;
   justify-content: space-between;
   margin-bottom: 15px;
@@ -30,4 +29,13 @@
 
 .paginator {
   background-color: rgba(255, 255, 255, 0);
+}
+
+.get-news-button {
+  max-height: 50px;
+  min-width: 150px;
+}
+
+.select-category {
+  padding-right: 10px;
 }

@@ -13,6 +13,7 @@ export class ArticleComponent implements OnInit {
   article: Article;
 
   offset = 100;
+  defaultImage = '../../../assets/loader.gif';
 
   constructor() {
   }

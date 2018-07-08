@@ -1,9 +1,11 @@
 .footer {
+  max-width: 100%;
+  min-width: 1200px;
+  margin-top: 100px;
+  height: 250px;
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  height: 250px;
-  margin-top: 100px;
   background-color: #2d2d2d;
 }
 
