@@ -10,6 +10,11 @@
                     placeholder="Wybierz kategorię">
           <mat-option *ngFor="let category of categories" [value]="category.value">{{category.viewValue}}</mat-option>
         </mat-select>
+
+
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Szukana fraza" [(ngModel)]="phrase">
       </mat-form-field>
       <button mat-raised-button color="primary" class="get-news-button" (click)="getNews()">Pobierz wiadomości</button>
       <mat-paginator class="paginator" [length]="pageEvent.length"
@@ -22,7 +27,8 @@
     <app-article-list
       [articles]="news.articles">
     </app-article-list>
-    <button class="back-top-button" *ngIf="news?.articles && news.articles?.length > 0" mat-raised-button color="primary" (click)="scrollToTop()">Wróć na
+    <button class="back-top-button" *ngIf="news?.articles && news.articles?.length > 0" mat-raised-button
+            color="primary" (click)="scrollToTop()">Wróć na
       górę
     </button>
   </div>

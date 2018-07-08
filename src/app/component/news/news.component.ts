@@ -39,15 +39,19 @@ export class NewsComponent implements OnInit {
   pageSizeOptions: number[] = [3, 5, 10, 20];
   pageEvent: PageEvent = new PageEvent();
   selected: Category = {value: 'technology', viewValue: 'Technologia'};
+  phrase = '';
 
   ngOnInit() {
     this.setDefaultValues();
     this.getNews();
   }
 
+  // this.pageEvent.pageIndex + 1 because newsApi sends back same results for page 0 and page 1.
   getNews() {
     this.blockUI.start();
-    this.service.getNews(this.countryCode, this.selected.value, this.pageEvent.pageIndex + 1, this.pageEvent.pageSize).subscribe(result => {
+    this.service.getNews(this.countryCode, this.selected.value,
+      this.pageEvent.pageIndex + 1, this.pageEvent.pageSize, this.phrase)
+      .subscribe(result => {
         this.news = result.body;
         this.pageEvent.length = result.headers.get('X-Total-Count');
       },
